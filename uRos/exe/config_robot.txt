@@ -12,7 +12,7 @@ node: logger2
   bin: ./node_logger
   args: --logfile fichier_log_bl.txt
   listen: input <- bumper2.fifo
-node: logger3
+node: logger-commande
   bin: ./node_logger
   args: --logfile fichier_log_commande.txt
   listen: input <- command_l.fifo

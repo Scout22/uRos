@@ -450,7 +450,7 @@ void* commande(void* arg){
 }
 
 void* bumper(void* arg){
-	int continu = 1; // Permet de savoir le nombre de caractères lu dans le fifo
+	int continu = 1; // Permet de savoir le nombre de caractères lus dans le fifo
 	capteur* listen = (capteur*) arg;
 	while(continu){
 		// Verrouillage du mutex bumper

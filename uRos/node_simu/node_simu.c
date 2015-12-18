@@ -61,8 +61,6 @@ int main(int argc, char* argv[]){
 	// Création de l'affichage
   	display_t *disp = new_display(map, rob);
 
-	
-
 	// Ouverture du fifo dont le nom est passé en paramètre du programme en mode lecture
 	capt->desc[0] = read_fifo(&(parametre.listen[0]));
 	if (capt->desc[0] > 0) {
@@ -102,8 +100,6 @@ int main(int argc, char* argv[]){
 
 			// Dévérouillage du mutex bumper
 			pthread_mutex_unlock(&(capt->mutex_bump));
-
-
 
 			///////////////////////////////////////////////////
 			//		BLOC MUTEX CMD						     //

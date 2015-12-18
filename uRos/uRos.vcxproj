@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="exe\config_robot.txt" />
+    <Text Include="exe\config_robot_corrupted.txt" />
     <Text Include="exe\config_robot_ia.txt" />
+    <Text Include="README.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BEB0AAA2-5C9B-4380-BFBB-003C087AEBD8}</ProjectGuid>

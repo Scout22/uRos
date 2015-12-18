@@ -81,5 +81,7 @@
     <Text Include="exe\config_robot_ia.txt">
       <Filter>Fichiers de ressources</Filter>
     </Text>
+    <Text Include="README.txt" />
+    <Text Include="exe\config_robot_corrupted.txt" />
   </ItemGroup>
 </Project>

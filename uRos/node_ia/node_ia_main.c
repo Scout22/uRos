@@ -25,7 +25,7 @@ void calc_speed(const char br, const char bl, float *vr, float *vl) {
 
 void send_speed(const int fd_com, float vr,float vl) {
 	char buff[255];
-	sprintf(buff, "set_v1 %f %f\n", vr, vl);
+	sprintf(buff, "set_v %f %f\n", vr, vl);
 	write(fd_com, buff, strlen(buff));
 }
 
@@ -36,8 +36,8 @@ void read_arg_ia(int argc, char** argv,param* parametre) {
 	}
 
 	parametre->set = 0;
-	int listen_ok = 0, listen_2_ok = 0, publish_ok = 0;
-	int i,j;
+	int listen_ok = 0, publish_ok = 0;
+	int i;
 
 	// Recherche des différents arguments
 	for (i = 1; i < argc; i++) {

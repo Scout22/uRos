@@ -1,0 +1,22 @@
+node: simu
+  bin: ./node_simu
+  args: --map cuisine.pbm --init-pos 300 300
+  publish: bumper_l -> bumper1.fifo
+  publish: bumper_r -> bumper2.fifo
+  listen: commande <- command.fifo
+node: logger1
+  bin: ./node_logger
+  args: --logfile fichier_log_br.txt
+  listen: input <- bumper1.fifo
+nod: logger2
+  bin: ./node_logger
+  args: --logfile fichier_log_bl.txt
+  listen: input <- bumper2.fifo
+node: logger-commande
+  bin: ./node_logger
+  args: --logfile fichier_log_commande.txt
+  listen: input <- command_l.fifo
+  publish: output -> command.fifo
+node: telecmd
+  bin: ./node_tele
+  publish: commande_out -> command_l.fifo

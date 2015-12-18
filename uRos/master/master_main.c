@@ -1,8 +1,16 @@
 #include "master.h"
 #include "../common_file/signal_function.h"
-
-
-
+/*
+Master permet de lire un fichier de configuration, de tester sa validité, lancer les
+les executables avec les bons arguments et de s'assurer de leur fermeture à la fin  
+de l'execution.
+Pour se faire le master crée des processus fils dont le PID est enregistré, et lors -
+que la condition d'arrete (SIGINT: Ctrl-C) est reçu envoie un signal d'arrete au di -
+fferent processus
+. / master config.txt
+config.txt un fichier de configuration formaté definissant les executables à lancer
+et les parametres associés.
+*/
 int main(int argc,char *argv[]){
 	sigset_t signals1, signals2;
 	if (argc!=2){

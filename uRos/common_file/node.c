@@ -21,7 +21,7 @@ cmd_type commande_type(char* commande) {
 		else if (strncmp(commande, "stop", 4) == 0) {
 			return STOP;
 		}
-		else if (sscanf(commande, "set_v1 %f %f", &temp1, &temp2) == 2) {
+		else if (sscanf(commande, "set_v %f %f", &temp1, &temp2) == 2) {
 			return SETV;
 		}
 		else if (strncmp(commande, "kill", 4) == 0) {
@@ -43,7 +43,7 @@ int read_speed_from_commande(char* commande, float *vr, float *vl) {
 	float temp1, temp2;
 	switch (cmde_type) {
 	case SETV:
-		sscanf(commande, "set_v1 %f %f", &temp1, &temp2);
+		sscanf(commande, "set_v %f %f", &temp1, &temp2);
 		*vr = temp1;
 		*vl = temp2;
 		break;
@@ -408,6 +408,9 @@ void display_usage(int type){
 			break;
 		case 4:
 			fprintf(stderr, "Usage: ./node_tele --publish out output.fifo");
+			break;
+		case 5:
+			fprintf(stderr, "Usage: ./node_ia --publish command command.fifo --listen bumper_l bumperl.fifo --listen bumper_r bumperr.fifo ");
 			break;
 		default:
 			break;

@@ -1,0 +1,8 @@
+node: myecho
+  bin: ./node_echo
+  publish: out_port -> myfifo.fifo
+  args: --msg Hello
+node: mylogger
+  bin: ./node_logger
+  listen: to_log <- myfifo.fifo
+  args: --logfile log.txt
